@@ -1,0 +1,199 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    background:linear-gradient(to right,#f8fafc,#e2e8f0);
+}
+
+
+
+header{
+    background:linear-gradient(
+        135deg,
+        #0f172a,
+        #2563eb,
+        #38bdf8
+    );
+
+    color:white;
+    text-align:center;
+    padding:60px 20px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+header h1{
+    font-size:50px;
+    margin-bottom:10px;
+}
+
+header h2{
+    font-size:24px;
+    font-weight:300;
+}
+
+
+
+.search-box{
+    text-align:center;
+    margin:40px 0;
+}
+
+.search-box input{
+    width:350px;
+    padding:15px;
+
+    border:none;
+    border-radius:30px;
+
+    box-shadow:0 3px 10px rgba(0,0,0,0.15);
+
+    font-size:16px;
+}
+
+.search-box button{
+    padding:15px 25px;
+
+    border:none;
+    border-radius:30px;
+
+    background:#2563eb;
+    color:white;
+
+    cursor:pointer;
+
+    margin-left:10px;
+
+    transition:.3s;
+}
+
+.search-box button:hover{
+    background:#1d4ed8;
+}
+
+
+
+.services{
+    width:90%;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+
+    gap:35px;
+
+    padding-bottom:80px;
+}
+
+
+
+.card{
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.1);
+
+    transition:.4s;
+}
+
+.card:hover{
+
+    transform:
+    translateY(-12px)
+    scale(1.02);
+
+    box-shadow:
+    0 20px 35px rgba(37,99,235,0.25);
+
+}
+
+.card img{
+
+    width:100%;
+    height:250px;
+
+    object-fit:cover;
+
+    transition:.5s;
+}
+
+.card:hover img{
+    transform:scale(1.08);
+}
+
+.card h3{
+
+    color:#2563eb;
+
+    font-size:24px;
+
+    padding:20px 20px 10px;
+}
+
+.card p{
+
+    padding:0 20px 20px;
+
+    color:#555;
+
+    line-height:1.8;
+}
+
+
+
+.card button{
+
+    margin:0 20px 20px;
+
+    padding:12px 25px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:linear-gradient(
+    45deg,
+    #2563eb,
+    #06b6d4
+    );
+
+    color:white;
+
+    font-size:15px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.card button:hover{
+
+    transform:scale(1.08);
+
+}
+
+
+
+footer{
+
+    background:#0f172a;
+
+    color:white;
+
+    text-align:center;
+
+    padding:25px;
+
+    font-size:15px;
+}
