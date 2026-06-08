@@ -1,0 +1,184 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Flash Services</title>
+
+    <link rel="stylesheet" href="{% static 'css/services.css' %}">
+</head>
+
+<body>
+
+    <header>
+
+        <h1>📸 Studio Flash</h1>
+
+        <h2>Our Photography Services</h2>
+
+    </header>
+
+    <div class="search-box">
+
+        <input type="text" id="search" placeholder="Search Service">
+
+        <!-- <button onclick="searchService()">
+            Search
+        </button> -->
+
+        <a href="/booking/">
+            <button>Book Now</button>
+        </a>
+
+    </div>
+
+    <section class="services">
+
+        <div class="card">
+
+            <img src="{% static 'image/wedding.jpg' %}" alt="">
+
+            <h3>Wedding Photography</h3>
+
+            <p>
+                Capture your wedding moments with
+                professional photography.
+            </p>
+
+            <!-- <button onclick="bookService('Wedding Photography')">
+                Book Now
+            </button> -->
+
+            <a href="/booking/">
+                <button>Book Now</button>
+            </a>
+
+        </div>
+
+        <div class="card">
+
+            <img src="{% static 'image/fashion.jpg' %}" alt="">
+            <h3>Fashion Photography</h3>
+
+            <p>
+                Professional photoshoots for models,
+                influencers and portfolios.
+            </p>
+
+            <!-- <button onclick="bookService('Fashion Photography')">
+                Book Now
+            </button> -->
+
+
+            <a href="/booking/">
+                <button>Book Now</button>
+            </a>
+
+        </div>
+
+        <div class="card">
+
+            <img src="{% static 'image/birthdayevent.jpg' %}" alt="">
+
+
+
+            <h3>Birthday Events</h3>
+
+            <p>
+                Preserve every smile and celebration
+                from your birthday events.
+            </p>
+
+            <!-- <button onclick="bookService('Birthday Events')">
+                Book Now
+            </button> -->
+
+
+            <a href="/booking/">
+                <button>Book Now</button>
+            </a>
+
+        </div>
+
+        <div class="card">
+
+            <img src="{% static 'image/studio rental.jpg' %}" alt="">
+
+            <h3>Studio Rental</h3>
+
+            <p>
+                Fully equipped indoor studio available
+                for rental.
+            </p>
+            <!-- 
+            <button onclick="bookService('Studio Rental')">
+                Book Now
+            </button> -->
+
+
+            <a href="/booking/">
+                <button>Book Now</button>
+            </a>
+
+        </div>
+
+        <div class="card">
+
+            <img src="{% static 'image/family2.jpg' %}" alt="">
+
+            <h3>Family Portraits</h3>
+
+            <p>
+                Create timeless family portraits with
+                professional lighting.
+            </p>
+
+            <!-- <button onclick="bookService('Family Portraits')">
+                Book Now
+            </button> -->
+
+            <a href="/booking/">
+                <button>Book Now</button>
+            </a>
+
+        </div>
+
+        <div class="card">
+
+            <img src="{% static 'image/comercial1.jpg' %}" alt="">
+
+            <h3>Commercial Photography</h3>
+
+            <p>
+                Product and business photography for
+                marketing and advertising.
+            </p>
+
+            <!-- <button onclick="bookService('Commercial Photography')">
+                Book Now
+            </button> -->
+
+            <a href="/booking/">
+                <button>Book Now</button>
+            </a>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        <p>
+            © 2026 Studio Flash.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+    <script src="{% static 'js/services.js' %}"></script>
+
+</body>
+
+</html>

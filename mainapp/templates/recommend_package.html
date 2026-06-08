@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/static/css/recommend_package.css">
+</head>
+<body>
+    <div class="container">
+
+    <h1>🤖 AI Package Recommendation</h1>
+
+    <form method="post">
+
+        {% csrf_token %}
+
+        <select name="event">
+            <option value="1">Fashion</option>
+            <option value="2">Birthday</option>
+            <option value="3">Wedding</option>
+            <option value="4">Studio</option>
+            <option value="5">Family</option>
+            <option value="6">Commercial</option>
+        </select>
+
+        <input
+            type="number"
+            name="budget"
+            placeholder="Enter Budget"
+            required>
+
+        <button type="submit">
+            Recommend Package
+        </button>
+
+    </form>
+
+    {% if package %}
+
+    <div class="result">
+        Recommended Package:
+        {{ package }}
+    </div>
+
+    {% endif %}
+
+</div>
+
+
+
+ <style>
+    *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(
+        135deg,
+        #0f172a,
+        #2563eb,
+        #38bdf8
+    );
+}
+
+.container{
+
+    width:450px;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,0.25);
+
+    text-align:center;
+}
+
+.container h1{
+
+    color:#2563eb;
+
+    margin-bottom:25px;
+
+    font-size:30px;
+}
+
+select,
+input{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-bottom:15px;
+
+    border:1px solid #d1d5db;
+
+    border-radius:10px;
+
+    font-size:16px;
+}
+
+select:focus,
+input:focus{
+
+    outline:none;
+
+    border-color:#2563eb;
+
+    box-shadow:
+    0 0 8px rgba(37,99,235,0.3);
+}
+
+button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:linear-gradient(
+        45deg,
+        #2563eb,
+        #06b6d4
+    );
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 10px 20px rgba(37,99,235,0.3);
+}
+
+.result{
+
+    margin-top:25px;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    background:#ecfdf5;
+
+    color:#15803d;
+
+    font-size:22px;
+
+    font-weight:bold;
+}
+ </style>
+</body>
+
+
+</html>

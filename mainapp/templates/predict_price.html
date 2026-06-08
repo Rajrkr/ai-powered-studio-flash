@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Price Predictor</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+
+            background:linear-gradient(
+            135deg,
+            #1e3a8a,
+            #2563eb,
+            #38bdf8
+            );
+
+            height:100vh;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .container{
+
+            background:white;
+
+            width:450px;
+
+            padding:30px;
+
+            border-radius:15px;
+
+            box-shadow:0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        h1{
+
+            text-align:center;
+
+            color:#2563eb;
+
+            margin-bottom:20px;
+        }
+
+        select,input{
+
+            width:100%;
+
+            padding:12px;
+
+            margin-bottom:15px;
+
+            border:1px solid #ccc;
+
+            border-radius:8px;
+        }
+
+        button{
+
+            width:100%;
+
+            padding:12px;
+
+            border:none;
+
+            background:#2563eb;
+
+            color:white;
+
+            border-radius:8px;
+
+            cursor:pointer;
+        }
+
+        button:hover{
+
+            background:#1d4ed8;
+        }
+
+        .result{
+
+            margin-top:20px;
+
+            text-align:center;
+
+            color:green;
+
+            font-size:24px;
+
+            font-weight:bold;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🤖 AI Price Predictor</h1>
+
+    <form method="post">
+
+        {% csrf_token %}
+
+        <select name="service">
+
+            <option value="1">Wedding</option>
+            <option value="2">Fashion</option>
+            <option value="3">Studio</option>
+            <option value="4">Birthday</option>
+            <option value="5">Family</option>
+            <option value="6">Commercial</option>
+
+        </select>
+
+        <input
+        type="number"
+        name="hours"
+        placeholder="Hours"
+        required>
+
+        <input
+        type="number"
+        name="photos"
+        placeholder="Photos"
+        required>
+
+        <button type="submit">
+            Predict Price
+        </button>
+
+    </form>
+
+    {% if price %}
+
+        <div class="result">
+
+            Estimated Price:
+            ₹{{ price }}
+
+        </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>

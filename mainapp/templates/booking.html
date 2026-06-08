@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Booking</title>
+</head>
+
+<body>
+
+    <div class="booking-box">
+
+        <h2>📸 Book Photography Service</h2>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <select name="service">
+
+                <option value="Wedding">Wedding</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Studio">Studio</option>
+                <option value="Birthday">Birthday</option>
+                <option value="Family">Family</option>
+                <option value="Commercial">Commercial</option>
+
+            </select>
+
+            <input type="number" name="hours" placeholder="Hours">
+
+            <input type="number" name="photos" placeholder="Photos">
+
+
+            <input type="date" name="event_date">
+
+            <button type="submit">
+                AI Book Now
+            </button>
+
+        </form>
+
+
+
+        {% if predicted_price %}
+
+        <div class="message">
+
+            Estimated Price:
+            ₹{{ predicted_price }}
+
+        </div>
+
+        {% endif %}
+
+
+        {% if recommended_package %}
+
+        <div class="message">
+
+            Recommended Package:
+            {{ recommended_package }}
+
+        </div>
+
+        {% endif %}
+
+
+
+    </div>
+
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: linear-gradient(135deg,
+                    #667eea,
+                    #764ba2);
+        }
+
+        .booking-box {
+
+            width: 400px;
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 20px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .booking-box h2 {
+
+            text-align: center;
+
+            margin-bottom: 20px;
+
+            color: #333;
+        }
+
+        .booking-box input {
+
+            width: 100%;
+
+            padding: 12px;
+
+            margin-bottom: 15px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+        }
+
+        .booking-box button {
+
+            width: 100%;
+
+            padding: 12px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: linear-gradient(45deg,
+                    #00c6ff,
+                    #0072ff);
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .booking-box button:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow: 0 5px 15px rgba(0, 114, 255, 0.3);
+        }
+
+        .message {
+
+            margin-top: 15px;
+
+            padding: 12px;
+
+            background: #dcfce7;
+
+            color: #15803d;
+
+            border: 2px solid #22c55e;
+
+            border-radius: 10px;
+
+            text-align: center;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            box-shadow:
+                0 4px 10px rgba(34, 197, 94, 0.2);
+        }
+
+        .dashboard-container {
+
+            text-align: center;
+
+            margin-top: 20px;
+        }
+
+        .dashboard-btn {
+
+            display: inline-block;
+
+            padding: 12px 25px;
+
+            text-decoration: none;
+
+            border-radius: 30px;
+
+            background: linear-gradient(45deg,
+                    #ff9800,
+                    #ff5722);
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 5px 15px rgba(255, 87, 34, 0.3);
+        }
+
+        .dashboard-btn:hover {
+
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 10px 20px rgba(255, 87, 34, 0.4);
+        }
+    </style>
+
+
+    {% if message %}
+    <div class="message">
+        ✅ {{ message }}
+    </div>
+    {% endif %}
+    <div class="dashboard-container">
+
+        <a href="/dashboard/" class="dashboard-btn">
+
+            🏠 Dashboard
+
+        </a>
+
+    </div>
+    
+</body>
+
+</html>

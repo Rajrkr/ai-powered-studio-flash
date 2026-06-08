@@ -1,0 +1,159 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Flash</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+</head>
+
+<body>
+
+    
+    <div id="hero">
+
+        <header id="top">
+
+            <h1>📸 Studio Flash</h1>
+
+            <nav class="menu">
+
+                <a href="#about">About</a>
+
+                <a href="#contact">Contact</a>
+            </nav>
+
+        </header>
+
+        <div class="hero-content">
+
+            <h2>Capture Every Beautiful Moment</h2>
+
+            <p>
+                Professional Photography, Wedding Shoots,
+                Fashion Photography and Studio Rental Services.
+            </p>
+
+            <a href="#" class="book-btn" onclick="bookNow()">
+                Book Now
+            </a>
+        </div>
+
+        
+
+        <div class="login-box">
+
+            <h2>Welcome Back</h2>
+
+            <p style="color:red;">
+                {{ message }}
+            </p>
+
+
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <input type="text" name="username" placeholder="Username">
+
+                <input type="password" name="password" placeholder="Password">
+
+                <button type="submit">
+                    Login
+                </button>
+
+            </form>
+
+            <p>
+                <a href="/forgot/">
+                    Forgot Password?
+                </a>
+            </p>
+
+            <p>
+                New User?
+                <a href="/register/">Register</a>
+            </p>
+
+        </div>
+
+    </div>
+
+    
+
+    <section id="about">
+
+        <h2>About Us</h2>
+
+        <p>
+            Studio Flash is a professional photography studio
+            specializing in weddings, events, fashion shoots,
+            family portraits, and commercial photography.
+        </p>
+
+    </section>
+
+   
+
+    <!-- <section id="services">
+
+        <h2>Our Services</h2>
+
+        <div class="service-container">
+
+            <div class="card">
+                <h3>Wedding Photography</h3>
+                <p>Capture your special day beautifully.</p>
+            </div>
+
+            <div class="card">
+                <h3>Fashion Photography</h3>
+                <p>Professional portfolio and model shoots.</p>
+            </div>
+
+            <div class="card">
+                <h3>Studio Rental</h3>
+                <p>Modern studio with professional equipment.</p>
+            </div>
+
+        </div>
+
+    </section> -->
+
+   
+
+    <section id="contact">
+
+        <h2>Contact Us</h2>
+
+        <p>📞 +91 987654310</p>
+        <p>📧 studioflash@gmail.com</p>
+        <p>📍 Salem, Tamil Nadu</p>
+
+    </section>
+
+    
+
+    <footer>
+
+        <p>© 2026 Studio Flash. All Rights Reserved.</p>
+
+    </footer>
+
+    <!-- JAVASCRIPT FILE -->
+    <!-- <script src="{% static 'js/script.js' %}"></script> -->
+
+
+</body>
+
+<script src="{% static 'js/script.js' %}"></script>
+
+</html>
