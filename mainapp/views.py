@@ -60,8 +60,6 @@ def forgot_password(request):
             return render(request, "forgot.html", {"password": user.password})
 
     return render(request, "forgot.html")
-
-
 def booking(request):
 
     if request.method == "POST":
@@ -80,25 +78,39 @@ def booking(request):
             "Studio": 3,
             "Birthday": 4,
             "Family": 5,
-            "Commercial": 6,
+            "Commercial": 6
         }
 
         service_code = service_map[service]
 
         price_data = pd.DataFrame(
-            {"Service": [service_code], "Hours": [hours], "Photos": [photos]}
+            {
+                "Service": [service_code],
+                "Hours": [hours],
+                "Photos": [photos]
+            }
         )
 
-        predicted_price = round(price_model.predict(price_data)[0], 2)
+        predicted_price = round(
+            price_model.predict(price_data)[0],
+            2
+        )
 
         package_data = pd.DataFrame(
-            {"Budget": [predicted_price], "Event": [service_code]}
+            {
+                "Budget": [predicted_price],
+                "Event": [service_code]
+            }
         )
 
-        recommended_package = package_model.predict(package_data)[0]
+        recommended_package = package_model.predict(
+            package_data
+        )[0]
 
         Booking.objects.create(
-            username=username, service=service, event_date=event_date
+            username=username,
+            service=service,
+            event_date=event_date
         )
 
         return render(
@@ -107,12 +119,11 @@ def booking(request):
             {
                 "predicted_price": predicted_price,
                 "recommended_package": recommended_package,
-                "message": "Booking Successful",
-            },
+                "message": "Booking Successful"
+            }
         )
 
     return render(request, "booking.html")
-
 
 def booking_history(request):
 
@@ -132,24 +143,6 @@ def delete_booking(request, id):
     return redirect("/history/")
 
 
-def predict_price(request):
-
-    price = None
-
-    if request.method == "POST":
-
-        service = int(request.POST["service"])
-        hours = int(request.POST["hours"])
-        photos = int(request.POST["photos"])
-
-        data = pd.DataFrame(
-            {"Service": [service], "Hours": [hours], "Photos": [photos]}
-        )
-
-        price = round(model.predict(data)[0], 2)
-
-    return render(request, "predict_price.html", {"price": price})
-
 
 def recommend_package(request):
 
@@ -165,6 +158,40 @@ def recommend_package(request):
         package = package_model.predict(data)[0]
 
     return render(request, "recommend_package.html", {"package": package})
+def predict_price(request):
+
+    price = None
+
+    if request.method == "POST":
+
+        service = int(request.POST["service"])
+        hours = int(request.POST["hours"])
+        photos = int(request.POST["photos"])
+
+        data = pd.DataFrame(
+            {
+                "Service": [service],
+                "Hours": [hours],
+                "Photos": [photos]
+            }
+        )
+
+        price = round(
+            price_model.predict(data)[0],
+            2
+        )
+
+    return render(
+        request,
+        "predict_price.html",
+        {"price": price}
+    )
+
+       
+
+    
+
+
 
 
 def dashboard(request):
@@ -207,7 +234,3 @@ def logout(request):
     request.session.flush()
 
     return redirect('/')
-
-
-def services(request):
-    return render(request, "services.html")
